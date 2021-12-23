@@ -1,4 +1,4 @@
-# Challenge-BGlobal
+# Challenge-BGlobal 🚀 🚀
 BGlobal React JS technicall challenge
 
 Pokedex layout challenge made with Vitejs⚡, React JS ⚛ & Chakra UI
