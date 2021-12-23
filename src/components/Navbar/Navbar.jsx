@@ -19,7 +19,7 @@ export const Navbar = ({ onSearch }) => {
           <Stack direction='column'>
             <Image
               src={pokedexLogo}
-              boxSize='150px'
+              boxSize='170px'
               objectFit='contain'
               alt='pokedex-logo'
               onClick={() => onSearch(null)}

@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NotMatchesFound from './components/Common/NotMatchesFound';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
-import { Navbar } from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import { usePokemonAPIClient } from './services/pokemonAPIClient';
 
 export const App = () => {
@@ -17,17 +17,12 @@ export const App = () => {
   const getPokemonList = async () => {
     try {
       setIsloading(true);
-
       const list = await pokemonAPIClient.list(25, 25 * page);
-
       const promiseResult = list.results.map(async (p) => {
         return pokemonAPIClient.getByUrl(p.url);
       });
-
       const res = await Promise.all(promiseResult);
-
       setPokemon(res);
-
       setIsloading(false);
       setTotalPages(Math.ceil(list.count / 25));
       setNotMatchesFound(false);
@@ -35,7 +30,6 @@ export const App = () => {
       new Error(error);
       console.log(`${error.name} : ${error.message} : ${error.response.data}`);
     }
-
     setIsloading(false);
     setNotMatchesFound(false);
   };
